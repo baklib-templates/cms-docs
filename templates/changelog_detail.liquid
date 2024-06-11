@@ -37,8 +37,10 @@
             </div>
           {% endif %}
 
-          <article class="p-4 text-lg leading-8 rounded-lg md:py-8 ProseMirror prose lg:prose-xl dark:bg-slate-600 dark:text-white">
-            {{ page.settings.content }}
+          <article class="p-4 rounded-lg md:py-8 dark:bg-slate-600 dark:text-white">
+            <div class="ProseMirror2 prose lg:prose-xl">
+              {{ page.settings.content }}
+            </div>
           </article>
 
 
@@ -132,11 +134,11 @@
     <div class="hidden lg:block flex-none w-64">
       <section aria-labelledby="section-2-title">
         <div class="overflow-hidden">
-          {{ site.settings.post_ad }}
           {% render 'sidebar', settings: site.settings %}
         </div>
       </section>
     </div>
+
   </div>
 </div>
 

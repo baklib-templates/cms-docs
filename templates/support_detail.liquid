@@ -8,7 +8,7 @@
 
 <div class="flex flex-col min-h-full bg-gray-50 dark:bg-slate-600">
 
-  <div class="flex-1 px-4 pt-4 lg:pb-24 sm:px-8 lg:pt-12 lg:px-12">
+  <div class="flex-1 lg:pb-24 sm:px-8 lg:pt-12 lg:px-12">
     <div class="flex flex-col justify-between mx-auto max-w-screen-xl md:flex-row">
 
       <!-- sidebar menu -->
@@ -48,13 +48,35 @@
 
       <!-- main content -->
       <main class="order-1 w-full md:order-2">
-        <div class="px-6 py-6 bg-white dark:bg-slate-600 dark:text-white rounded-md shadow-lg md:py-12 md:px-12 shadow-slate-200">
-          <h1 class="block w-full pt-1 text-xl font-semibold text-left md:text-3xl">
+        <div class="px-6 py-6 md:py-8 md:px-12 bg-white dark:bg-slate-600 dark:text-white rounded-md shadow-lg  shadow-slate-200">
+          <h1 class="block w-full my-2 lg:my-4 text-2xl font-semibold text-left md:text-3xl">
             {{ page.settings.title }}
           </h1>
 
-          <article class="p-4 text-lg leading-8 rounded-lg md:py-8 ProseMirror prose lg:prose-xl">
-            {{ page.settings.content }}
+          <div>
+            <div class="flex items-center space-x-2 mb-4">
+              {% if site.settings.is_allow_author %}
+                <img src="{{ page.author.avatar_url | default: default_avatar_url }}" class="w-8 h-8 rounded-full" />
+              {% endif %}
+              <div>
+                {% if site.settings.is_allow_author %}
+                  <p class="text-lead line-clamp-2 mb-[3px] text-gray-900 dark:text-gray-500 text-heading-6">
+                    {{ page.author.name }}
+                  </p>
+                {% endif %}
+                {% if site.settings.is_allow_published_at %}
+                  <p class="text-sm text-gray-500 text-md">发布于：{{ page.published_at | date: "%Y-%m-%d" }}</p>
+                {% endif %}
+              </div>
+            </div>
+          </div>
+
+          <article class="max-w-full">
+            <div class="overflow-auto">
+              <div class="ProseMirror prose sm:prose-base lg:prose-lg focus:outline-none dark:prose-invert">
+                {{ page.settings.content }}
+              </div>
+            </div>
           </article>
 
           <!--Tags-->

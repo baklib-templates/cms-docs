@@ -21,10 +21,10 @@
     {% endif %}
 
 
-    <div class="mt-4 space-y-6 text-slate-600 dark:text-slate-400 ProseMirror grow" data-controller="view_images">
+    <div class="mt-4 space-y-6 text-slate-600 dark:text-slate-400" >
       <div class="mt-8 flow-root">
         <div class="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
-          <div class="py-2 align-middle sm:px-6 lg:px-8">
+          <div class="ProseMirror prose sm:prose-base lg:prose-lg xl:prose-xl focus:outline-none dark:prose-invert" data-controller="view_images">
             {{ page.settings.content }}
           </div>
         </div>

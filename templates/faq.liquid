@@ -48,7 +48,7 @@
         {% paginate_tag pages, per: 24 %}
           {% for sub_page in pages %}
             <!-- item -->
-            <div class="flex items-start w-full max-w-3xl px-6 py-6 space-x-4 bg-white rounded-md shadow-lg shadow-slate-200"  x-data="{isOpen : false }">
+            <div class="flex items-start w-full max-w-3xl px-6 py-6 space-x-4 rounded-md shadow-lg shadow-slate-200"  x-data="{isOpen : false }">
               <div class="flex items-center justify-center w-8 h-8 mt-1 bg-blue-100 rounded-full" >
                 <div x-show="isOpen">
                   <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -62,10 +62,11 @@
                 </div>
               </div>
               <div class="flex-1">
-                <button @click="isOpen = !isOpen" class="block w-full py-1 text-sm font-semibold text-left text-gray-800 md:text-base hover:text-primary">
+                <button @click="isOpen = !isOpen" class="block w-full py-1 text-sm font-semibold text-left text-gray-800 dark:text-white md:text-base hover:text-primary">
                   {{ sub_page.settings.title }}</button>
+
                 <div class="mt-2" x-show="isOpen" @click.away="isOpen = !isOpen">
-                  <div class="ProseMirror text-gray-500">
+                  <div class="ProseMirror prose sm:prose-base lg:prose-lg focus:outline-none dark:prose-invert">
                     {{ sub_page.settings.content }}
                   </div>
                 </div>

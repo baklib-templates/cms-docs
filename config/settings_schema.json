@@ -117,13 +117,25 @@
         "id": "hot_tags",
         "label": "t:settings_schema.generic.settings.hot_tags.label",
         "type": "text",
-        "default": ""
+        "default": "install,get started, how to"
       },
       {
         "id": "copyright_info",
         "type": "text",
         "label": "t:settings_schema.generic.settings.copyright_info.label",
         "default": "t:settings_schema.generic.settings.copyright_info.default"
+      },
+      {
+        "id": "is_allow_published_at",
+        "type": "checkbox",
+        "label": "文章内是否展示发布日期",
+        "default": true
+      },
+      {
+        "id": "is_allow_author",
+        "type": "checkbox",
+        "label": "文章内是否展示作者",
+        "default": true
       }
     ]
   },
