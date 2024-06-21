@@ -1,4 +1,4 @@
-{% assign pages = page.children_in_list | order_by: "-created_at" %}
+{% assign pages = page.children_in_list %}
 {% assign thumb = 'images/thumbnail.png' | asset_url %}
 <a name="blog"></a>
 
@@ -52,7 +52,7 @@
               </div>
               <div class="flex justify-between my-2">
                 <div>
-                  {%- if page.settings.is_allow_author -%}
+                  {%- if site.settings.is_allow_author -%}
                     <div class="relative flex items-center gap-x-2">
                       <img src="{{ page.author.avatar_url }}" alt="" class="h-6 w-6 rounded-full bg-gray-100">
                       <div class="text-sm leading-6">
@@ -67,7 +67,7 @@
                   {%- endif -%}
                 </div>
                 <div>
-                  {%- if page.settings.is_allow_published_at -%}
+                  {%- if site.settings.is_allow_published_at -%}
                     <time datetime="{{ sub_page.published_at }}" class="text-sm">{{ sub_page.published_at | date: "%Y-%m-%d" }}</time>
                   {%- endif -%}
                 </div>
@@ -115,18 +115,6 @@
         "id": "is_allow_thumb",
         "type": "checkbox",
         "label": "是否展示封面",
-        "default": true
-      },
-      {
-        "id": "is_allow_published_at",
-        "type": "checkbox",
-        "label": "是否展示发布日期",
-        "default": true
-      },
-      {
-        "id": "is_allow_author",
-        "type": "checkbox",
-        "label": "是否展示作者",
         "default": true
       },
       {

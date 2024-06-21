@@ -100,26 +100,6 @@
     "name": "t:settings_schema.generic.name",
     "settings": [
       {
-        "id": "hero_image_url",
-        "type": "image_picker",
-        "ratio": "19:6",
-        "width": 900,
-        "label": "t:settings_schema.generic.settings.hero_image_url.label",
-        "info": "t:settings_schema.generic.settings.hero_image_url.info"
-      },
-      {
-        "id": "description",
-        "type": "text",
-        "label": "t:settings_schema.generic.settings.description.label",
-        "default": "👋 What Can We Help?"
-      },
-      {
-        "id": "hot_tags",
-        "label": "t:settings_schema.generic.settings.hot_tags.label",
-        "type": "text",
-        "default": "install,get started, how to"
-      },
-      {
         "id": "copyright_info",
         "type": "text",
         "label": "t:settings_schema.generic.settings.copyright_info.label",

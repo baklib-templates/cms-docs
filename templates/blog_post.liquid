@@ -18,27 +18,29 @@
 
             <div>
               <div class="flex items-center space-x-2 mb-4">
-                {% if page.parent.settings.is_allow_author %}
+                {% if site.settings.is_allow_author %}
                   <img src="{{ page.author.avatar_url | default: default_avatar_url }}" class="w-8 h-8 rounded-full" />
                 {% endif %}
                 <div>
-                  {% if page.parent.settings.is_allow_author %}
+                  {% if site.settings.is_allow_author %}
                     <p class="text-lead line-clamp-2 mb-[3px] text-gray-900 dark:text-gray-500 text-heading-6">
                       {{ page.author.name }}
                     </p>
                   {% endif %}
-                  {% if page.parent.settings.is_allow_published_at %}
+                  {% if site.settings.is_allow_published_at %}
                     <p class="text-sm text-gray-500 text-md">发布于：{{ page.published_at | date: "%Y-%m-%d" }}</p>
                   {% endif %}
                 </div>
               </div>
             </div>
 
-          <figure class="p-4 mb-4 border-l border-indigo-600 rounded-lg bg-slate-100">
-            <blockquote class="font-semibold text-gray-500">
-              <p>{{ page.settings.description |  strip_html }}</p>
-            </blockquote>
-          </figure>
+          {% if page.settings.description %}
+            <figure class="p-4 mb-4 border-l border-indigo-600 rounded-lg bg-slate-100">
+              <blockquote class="font-semibold text-gray-500">
+                <p>{{ page.settings.description |  strip_html }}</p>
+              </blockquote>
+            </figure>
+          {% endif %}
 
           {% if page.settings.thumb_image_url %}
             <div class="md:p-4 lg:p-8 rounded-md bg-gradient-to-r from-primary/20 from-10% via-secondary/20 via-30% to-accent/20 to-90%">

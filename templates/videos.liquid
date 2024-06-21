@@ -42,7 +42,7 @@
                 </div>
                 <div class="flex justify-between my-2">
                   <div>
-                    {%- if page.settings.is_allow_author -%}
+                    {%- if site.settings.is_allow_author -%}
                       <div class="relative flex items-center gap-x-2">
                         <img src="{{ page.author.avatar_url }}" alt="" class="h-6 w-6 rounded-full bg-gray-100">
                         <div class="text-sm leading-6">
@@ -57,7 +57,7 @@
                     {%- endif -%}
                   </div>
                   <div>
-                    {%- if page.settings.is_allow_published_at -%}
+                    {%- if site.settings.is_allow_published_at -%}
                       <time datetime="{{ sub_page.published_at }}" class="text-sm">{{ sub_page.published_at | date: "%Y-%m-%d" }}</time>
                     {%- endif -%}
                   </div>
@@ -106,18 +106,6 @@
         "choices": [{"label":"桌面端宽视频（16:9）","value":"0"},{"label":"手机端长视频（9:16）","value":"1"}],
         "default": "0",
         "info": "* 在子页面上传的视频封面尺寸也应该按当前选择的尺寸适配"
-      },
-      {
-        "id": "is_allow_published_at",
-        "type": "checkbox",
-        "label": "是否展示发布日期",
-        "default": true
-      },
-      {
-        "id": "is_allow_author",
-        "type": "checkbox",
-        "label": "是否展示作者",
-        "default": true
       },
       {
         "id": "recommend_to_index",
