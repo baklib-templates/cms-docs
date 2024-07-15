@@ -44,12 +44,17 @@
                   <div>
                     {%- if site.settings.is_allow_author -%}
                       <div class="relative flex items-center gap-x-2">
-                        <img src="{{ page.author.avatar_url }}" alt="" class="h-6 w-6 rounded-full bg-gray-100">
+                        <div
+                          {% if page.author.avatar_url %}
+                            style="--avatar-url: url({{page.author.avatar_url}})"
+                          {% endif %}
+                          class="avatar"
+                        ></div>
                         <div class="text-sm leading-6">
                           <p class="font-semibold">
                             <a href="javascript:void(0);">
                               <span class="absolute inset-0"></span>
-                              {{ page.author.name }}
+                              {{ page.author.name | default: '匿名' }}
                             </a>
                           </p>
                         </div>
