@@ -1,6 +1,50 @@
 {% assign pages = page.children_in_list %}
 {% assign thumb = 'images/thumbnail.png' | asset_url %}
 
+
+<!-- component -->
+<div>
+  <section class="text-gray-700">
+    <div class="container px-5 py-24 mx-auto">
+      <div class="text-center items-center mb-20">
+        {% if page.settings.icon %}
+          <div class="flex justify-center items-center pt-12">
+            <img src="{{ page.settings.icon }}" class="h-10"/>
+          </div>
+        {% endif %}
+        <h1 class="sm:text-3xl text-2xl font-medium text-center">
+          {{ page.settings.title }}
+        </h1>
+        <p class="text-base leading-relaxed xl:w-2/4 lg:w-3/4 mx-auto">
+          {{ page.settings.description }}
+        </p>
+      </div>
+      <div class="flex flex-wrap lg:w-4/5 sm:mx-auto sm:mb-2 -mx-2">
+        {%# 分页 %}
+        {% paginate_tag pages, per: 24 %}
+          {% for sub_page in pages %}
+            <div class="w-full lg:w-1/2 px-4 pt-2 lg:pb-2">
+              <details class="mb-4">
+                <summary class="font-semibold bg-gray-200 rounded-md py-2 px-4 flex-wrap break-all">
+                  {{ sub_page.settings.title }}
+                </summary>
+
+                <div class="overflow-auto">
+                  <div class="ProseMirror prose sm:prose-base lg:prose-lg focus:outline-none dark:prose-invert break-all flex-wrap">
+                    {{ sub_page.settings.content }}
+                  </div>
+                </div>
+              </details>
+            </div>
+          {% endfor %}
+          <!-- Pagination -->
+          {% render 'paginate', paginate: paginate %}
+        {% endpaginate_tag %}
+      </div>
+    </div>
+  </section>
+</div>
+
 {% comment %} file:///Users/songxuejiang/sites/themes.dev-%E4%BB%98%E8%B4%B92023/Runway-UIBak/collections/support-article.html {% endcomment %}
 
 <!-- Page header -->
