@@ -38,14 +38,23 @@
       </div>
       <div data-more-loader-target="content">
         {% if search.keywords or search.tag %}
+          {% if search.page_number == 1 %}
+            {% for link in search.extends %}
+              <div class="space-y-4 rounded-md bg-accent-100 hover:bg-accent-200 md:p-4">
+                <a class="text-lg font-bold md:text-xl text-slate-800 hover:text-secondary dark:text-slate-200 search-highlight-block" href="{{ link.url }}">{{ link.link_text }}</a>
+                <p class="text-sm line-clamp-3 text-slate-400 search-highlight-block">{{ link.url }}</p>
+              </div>
+            {% endfor %}
+          {% endif %}
           {% paginate_tag search.pages, as: 'items', per: 15 %}
             {% for page in items %}
               <div class="my-4">
-                <a class="text-xl font-bold" href="{{ page.url }}">
-                  <span>{{ page.link_text | highlight: search.keywords }}</span>
+                <a class="text-xl font-bold keyword-highlight-block" href="{{ page.url }}">
+                  <span>{{ page.highlighted_search_title }}</span>
                 </a>
-                <p class="mt-2 text-base text-gray-700">
-                  {{ page.settings.content | strip_html | highlight: search.keywords }}
+                <p class="mt-2 text-base text-gray-700 keyword-highlight-block" >
+                  {# page.settings.content | strip_html | highlight: search.keywords }
+                  {{ page.highlighted_search_content }}
                 </p>
                 <div class="grid grid-cols-6 gap-4">
                   <div class="col-span-6 mt-2 mb-0 text-sm text-justify text-gray-400 text-truncate md:col-span-3">
