@@ -1,6 +1,24 @@
-# wiki帮助中心 模板
+# Support Portal 帮助中心 模板
 
 ## 介绍
+
+Support Portal 是一个功能强大、操作简单的在线支持平台，包含知识库、发布日志、FAQ、视频、博客等。
+
+模板信息：
+
+- theme_name: docs
+- theme_scope: cms
+- theme_author: Baklib
+- theme_documentation_url: https://help.baklib.cn/themes/help-center
+- theme_support_url: https://help.baklib.cn/themes/help-center/settings
+- Demo演示： https://demo-supprot-portal.uibak.com/
+
+模板特点：
+
+- 预设有客户支持门户主题首页；
+- 支持低代码高度定制化开发
+- 预设视频、博客、FAQ、Support等栏目模板
+
 
 ## 开发
 
