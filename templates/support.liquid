@@ -1,12 +1,14 @@
 {% assign title = page.settings.title  %}
-<section class="bg-slate-100 dark:bg-slate-700">
+<section class="bg-slate-100 dark:bg-slate-700 h-screen">
     <div class="px-6 py-8 mx-auto space-y-6 xl:px-12">
         <div class="max-w-screen-xl px-6 py-8 mx-auto space-y-6 xl:px-12">
             <div class="max-w-screen-md mx-auto">
                 <h2 class="text-2xl font-semibold text-center lg:text-4xl">{{ page.settings.title |  default: 'Frequently Asked Questions' }}</h2>
                 <p class="mt-2 text-sm text-center">{{ page.settings.description | default: 'We Are Here to Help'}}</p>
 
-                {{ site.settings.features_one }}
+                <!-- features -->
+                {{ site.settings.features_three }}
+                <!--/ features-->
                 {%  comment  %}
                     <div class="flex justify-center pt-6 pb-3 mt-5 space-x-3 lg:py-3">
                         <button class="flex items-center px-4 py-3 space-x-2 text-sm font-semibold leading-4 transition-colors duration-300 bg-blue-600 rounded-md hover:bg-blue-700 text-blue-50">
@@ -45,7 +47,8 @@
                     {% assign sub_page_count = sub_page.children | size %}
                     <a href="{{ sub_page.path }}" class="flex items-start justify-between px-4 pt-6 pb-3 transition-all duration-300 bg-white rounded-md shadow-sm shadow-gray-200 hover:-translate-y-1 hover:shadow-md ">
                         <div class="flex items-start space-x-4">
-                            <div class="flex items-center justify-center w-12 h-12 text-primary bg-secondary/20 rounded-md md:w-16 md:h-16">
+                            {% if true %}
+                            <div class="flex items-center justify-center">
                                 {% if sub_page.settings.icon %}
                                     <img src="{{ sub_page.settings.icon }}" class="w-8 h-8"/>
                                 {% else %}
@@ -54,10 +57,11 @@
                                     </svg>
                                 {% endif %}
                             </div>
+                            {% endif %}
                             <div class="flex-1">
                                 <span class="font-semibold text-gray-800">{{ sub_page.link_text }}</span>
                                 <span class="block mt-1 text-sm text-gray-700">{{ sub_page_count }} Articles</span>
-                                <span class="block mb-3 text-sm text-gray-600">Last edited a week ago by Danny Brown</span>
+                                <span class="block mb-3 text-sm text-gray-600">{{ sub_page.settings.description }}</span>
                             </div>
                         </div>
                     </a>

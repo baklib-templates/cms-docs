@@ -7,7 +7,12 @@
           <nav aria-label="" class="block col-span-7 md:col-span-3" data-turbo="false">
             <ol class="flex flex-wrap p-0 mt-8 mb-4 space-x-2 bg-transparent">
               <li class="">
-                <a href="/">{{ 'generic.back' | t }}</a>
+                <a href="{{site.index_path}}" class="flex items-center rounded-full border-slate-400 bg-slate-100 hover:bg-slate-300 px-3 py-2">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 w-5 h-5 mr-1">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
+                  </svg>
+
+                  {{ 'generic.back' | t }}</a>
               </li>
             </ol>
           </nav>
@@ -37,46 +42,32 @@
         {% endform_tag %}
       </div>
       <div data-more-loader-target="content">
-        {% if search.keywords or search.tag %}
+        <div class="space-y-3 ">
           {% if search.page_number == 1 %}
             {% for link in search.extends %}
-              <div class="space-y-4 rounded-md bg-accent-100 hover:bg-accent-200 md:p-4">
+              <div class="space-y-4 md:p-4 border-b border-accent dark:hover:bg-gray-600 hover:bg-accent-100">
                 <a class="text-lg font-bold md:text-xl text-slate-800 hover:text-secondary dark:text-slate-200 search-highlight-block" href="{{ link.url }}">{{ link.link_text }}</a>
                 <p class="text-sm line-clamp-3 text-slate-400 search-highlight-block">{{ link.url }}</p>
               </div>
             {% endfor %}
           {% endif %}
-          {% paginate_tag search.pages, as: 'items', per: 15 %}
-            {% for page in items %}
-              <div class="my-4">
-                <a class="text-xl font-bold keyword-highlight-block" href="{{ page.url }}">
-                  <span>{{ page.highlighted_search_title }}</span>
-                </a>
-                <p class="mt-2 text-base text-gray-700 keyword-highlight-block" >
-                  {# page.settings.content | strip_html | highlight: search.keywords }
-                  {{ page.highlighted_search_content }}
-                </p>
-                <div class="grid grid-cols-6 gap-4">
-                  <div class="col-span-6 mt-2 mb-0 text-sm text-justify text-gray-400 text-truncate md:col-span-3">
+          {% paginate_tag search.pages, as: 'pages', per: 10 %}
+            {% for page in pages %}
+              <div class="space-y-4 md:p-4 border-b border-accent dark:hover:bg-gray-600 hover:bg-accent-100">
+                <a class="text-lg font-bold md:text-xl text-slate-800 hover:text-secondary dark:text-slate-200 search-highlight-block" href="{{ page.path }}">{{ page.highlighted_search_title }}</a>
+                <p class="text-sm line-clamp-3 text-slate-400 search-highlight-block">{{ page.highlighted_search_content }}</p>
+                <div class="flex items-center justify-between">
+                  <div class="breadcrumbs hidden overflow-x-auto md:block text-sm">
                     {% render 'breadcrumb', breadcrumb: page.breadcrumb %}
                   </div>
-                  <p class="hidden col-span-6 mt-2 text-sm italic text-right text-gray-300 md:col-span-3 md:block">
-                    来源: <a href="/0e5f/1205/3577/d08c">http://helperp.kuaidizs.cn/0e5f/1205/3577/d08c</a>
-                  </p>
                 </div>
               </div>
-              <hr class="border-dashed">
             {% else %}
-              {% assign message = "empty.name" | t %}
-              {% render 'empty', message: message %}
+              <div class="w-full mx-auto my-8">{{ "search.no_results" | t: 'No results found' }}</div>
             {% endfor %}
-            <div class="mt-8">
-              {% render 'paginate', paginate: paginate %}
-            </div>
+            {% render 'paginate', paginate: paginate %}
           {% endpaginate_tag %}
-        {% else %}
-          <div class="w-full mx-auto my-8">{{ "search.please_enter_keywords" | t }}</div>
-        {% endif %}
+        </div>
       </div>
     </div>
   </div>

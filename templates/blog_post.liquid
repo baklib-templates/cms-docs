@@ -28,7 +28,7 @@
                     </p>
                   {% endif %}
                   {% if site.settings.is_allow_published_at %}
-                    <p class="text-sm text-gray-500 text-md">发布于：{{ page.published_at | date: "%Y-%m-%d" }}</p>
+                    <p class="text-sm text-gray-500 text-md">Published at：{{ page.published_at | date: "%Y-%m-%d" }}</p>
                   {% endif %}
                 </div>
               </div>
@@ -43,13 +43,17 @@
           {% endif %}
 
           {% if page.settings.thumb_image_url %}
-            <div class="md:p-4 lg:p-8 rounded-md bg-gradient-to-r from-primary/20 from-10% via-secondary/20 via-30% to-accent/20 to-90%">
+            <div class="md:p-2 lg:p-4">
               <img src="{{ page.settings.thumb_image_url }}" class="w-full object-cover max-h-[450px] rounded-2xl mb-[30px] lg:mb-0 rounded-md transition-all duration-500 ease-in-out scale-100 hover:scale-110" alt="Baklib">
             </div>
           {% endif %}
 
-          <article class="ProseMirror prose sm:prose-base lg:prose-lg focus:outline-none dark:prose-invert">
-            {{ page.settings.content }}
+          <article class="max-w-full">
+            <div class="w-full overflow-auto">
+              <div class="ProseMirror text-wrap prose sm:prose-base lg:prose-lg focus:outline-none dark:prose-invert">
+                {{ page.settings.content }}
+              </div>
+            </div>
           </article>
 
           <!--Tags-->
@@ -65,12 +69,8 @@
           {% endif %}
 
           <!-- Feedback -->
-          <div class="py-8 lg:flex lg:items-center lg:justify-between">
-            <div class="text-lg font-bold text-slate-800 dark:text-slate-200">{{ 'generic.feedback' | t }}</div>
-            <div class="flex items-center space-x-4">
-              {% render "feedback_form", page: page %}
-            </div>
-          </div>
+          {% render "feedback_form", page: page %}
+          
 
           <!-- Sub Post Section -->
           {% render 'pages', page: page, show_header: false %}
@@ -183,7 +183,7 @@
           "id": "thumb_image_url",
           "type": "image_picker",
           "ratio": "6:4",
-          "width": 640,
+          "width": 400,
           "label": "封面图"
         },
         {

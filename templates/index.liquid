@@ -1,6 +1,6 @@
 {% assign default_hero_image = 'images/hero.jpg' | asset_url %}
 {% assign hot_tags = page.settings.hot_tags | split: ',' %}
-{% assign limit_page_count = page.settings.card_page_count %}
+{% assign limit_page_count = 3 %}
 {% assign channel_pages = site.pages['/'].children_in_nav_menu %}
 
 <section class="relative bg-slate-100 dark:bg-slate-700">
@@ -46,7 +46,7 @@
             <div class="items-center justify-center hidden w-full mt-4 md:flex overflow-hidden">
               {% for search_hot_key in hot_tags %}
                 <a
-                  href="/-/search?q={{ search_hot_key }}"
+                  href="{{site.index_path}}-/search?q={{ search_hot_key }}"
                   class="mr-3 border border-white rounded-2xl px-2 py-1 text-sm text-white hover:bg-slate-100/50 hover:text-white focus:ring"
                 >
                   {{ search_hot_key }}
@@ -65,6 +65,72 @@
     <div class="px-4 mx-auto mt-8 max-w-7xl sm:px-6">
       {% # 列表指南- Guide %}
       <div class="items-start lg:max-w-none grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 lg:gap-x-12 lg:gap-y-16">
+        <!-- 自定义 First Card -->
+        <div class="flex flex-col h-full bg-white dark:bg-slate-800 text-slate-800 dark:text-slate-200 rounded-md shadow-2xl shadow-slate-200 overflow-hidden">
+          <!-- Image -->
+          <!-- Card Content -->
+          <div class="flex-1 flex flex-col p-6">
+              <!-- Card body -->
+              <div class="flex-1">
+                  <!-- Header -->
+                  <header class="mb-2">
+                    <div class="flex items-center justify-start">
+                        <div class="relative w-10 h-10 rounded-full mr-2">
+                          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-10 h-10 items-center">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M4.26 10.147a60.438 60.438 0 0 0-.491 6.347A48.62 48.62 0 0 1 12 20.904a48.62 48.62 0 0 1 8.232-4.41 60.46 60.46 0 0 0-.491-6.347m-15.482 0a50.636 50.636 0 0 0-2.658-.813A59.906 59.906 0 0 1 12 3.493a59.903 59.903 0 0 1 10.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.717 50.717 0 0 1 12 13.489a50.702 50.702 0 0 1 7.74-3.342M6.75 15a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Zm0 0v-3.675A55.378 55.378 0 0 1 12 8.443m-7.007 11.55A5.981 5.981 0 0 0 6.75 15.75v-1.5" />
+                          </svg>
+                        </div>
+                      <p class="">
+                        <h3 class="line-clamp-1 text-xl font-semibold">Qucik Start</h3>
+                      </p>
+                    </div>
+                  </header>
+                  <!-- Content -->
+                  <div class="my-4">
+                    <ul>
+                     
+                        <li class="mt-2 truncate">
+                          <a
+                            href="/guide"
+                            class="relative transition duration-500 group text-gray-550 text-tiny hover:text-primary"
+                          >
+                            <span
+                              class="absolute inline-block w-1.5 h-1.5 border-0 bg-gray-400 rounded-full group-hover:bg-primary transition duration-500 top-2"
+                            ></span>
+                            <span class="ml-4 line-clamp-1">Beginner's Guide</span>
+                          </a>
+                        </li>
+                        <li class="mt-2 truncate">
+                          <a
+                            href="/video"
+                            class="relative transition duration-500 group text-gray-550 text-tiny hover:text-primary"
+                          >
+                            <span
+                              class="absolute inline-block w-1.5 h-1.5 border-0 bg-gray-400 rounded-full group-hover:bg-primary transition duration-500 top-2"
+                            ></span>
+                            <span class="ml-4 line-clamp-1">Video</span>
+                          </a>
+                        </li>
+                        <li class="mt-2 truncate">
+                          <a
+                            href="/faqs"
+                            class="relative transition duration-500 group text-gray-550 text-tiny hover:text-primary"
+                          >
+                            <span
+                              class="absolute inline-block w-1.5 h-1.5 border-0 bg-gray-400 rounded-full group-hover:bg-primary transition duration-500 top-2"
+                            ></span>
+                            <span class="ml-4 line-clamp-1">Installation Q&A</span>
+                          </a>
+                        </li>  
+                    </ul>
+                  </div>
+              </div>
+              <!-- Card footer -->
+              <div class="flex justify-end space-x-2 border-t border-slate-200 dark:border-gray-700 pt-3 md:pt-5">
+                
+              </div>
+          </div>
+        </div>
         {% for card_page in channel_pages %}
           {% if card_page.settings.recommend_to_index == false %}
             {% continue %}
@@ -80,8 +146,8 @@
                       <header class="mb-2">
                         <div class="flex items-center justify-start">
                           {% if card_page.settings.icon %}
-                            <div class="relative w-12 h-12 bg-secondary/20 rounded-full mr-2">
-                              <img src="{{ card_page.settings.icon }}" class="h-10"/>
+                            <div class="relative w-10 h-10 rounded-full mr-2">
+                              <img src="{{ card_page.settings.icon }}" class="h-10 items-center"/>
                             </div>
                           {% endif %}
                           <a class="text-xl font-semibold hover:text-primary" href="{{ card_page.path }}">
@@ -119,18 +185,14 @@
         {% endfor %}
       </div>
 
+      
       {% # 特殊定制页面 %}
       <!-- features -->
       {{ site.settings.features_one }}
       <!--/ features-->
 
-      <!-- features -->
-      {{ site.settings.features_two }}
-      <!--/ features-->
+      
 
-      <!-- features -->
-      {{ site.settings.features_three }}
-      <!--/ features-->
 
       {% # 热门话题 %}
       {% assign faq_pages = site.pages['/'].pages | order_by: '-visits_count' | limit: 10 %}
@@ -179,6 +241,12 @@
           {% endfor %}
         </div>
       </div>
+
+      {% # 特殊定制页面 %}
+      <!-- features -->
+      {{ site.settings.features_two }}
+      <!--/ features-->
+
     </div>
   </div>
 </section>
