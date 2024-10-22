@@ -49,6 +49,10 @@
   [data-scrollspy-link].scrollspy-active {
     @apply font-medium text-blue-600 before:bg-blue-400;
   }
+  /* Search Result Highlight */
+  .search-highlight-block b {
+    color: hsl(var(--theme-color-primary));
+  }
 }
 
 @layer components{
