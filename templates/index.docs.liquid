@@ -13,7 +13,7 @@
         <ul role="list" class="mx-auto max-w-2xl mt-4 grid grid-cols-4 gap-4 text-center">
             {% for item in links %}
                 <li>
-                    <a href="{{ item.path }}">
+                    <a href="{{ item.settings.external_link | default: item.path }}">
                         <img class="mx-auto w-8 h-8 size-6 rounded-full" src="{{ item.settings.icon }}" alt="">
                         <p class="text-sm mt-1">{{ item.link_text }}</p>
                     </a>

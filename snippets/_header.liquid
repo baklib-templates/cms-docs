@@ -118,9 +118,9 @@
             </div>
 
             <!-- Desktop navigation -->
-            <nav class="flex hidden lg:block">
+            <nav class="hidden lg:flex">
                 <!-- Right side elements links -->
-                <ul class="flex flex-wrap items-center justify-end space-x-2 grow md:space-x-4">
+                <ul class="flex flex-wrap items-center justify-end space-x-2 grow md:space-x-4 dark:text-white">
 
                     {% if site.settings.header_menu_html == "" %}
                         {% assign nav_pages2 = site.pages['/'].children_in_nav_menu  | limit: 10 %}

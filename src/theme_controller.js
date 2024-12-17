@@ -18,7 +18,6 @@ export default class extends Controller {
   toggle() {
     const checkbox = this.checkboxTarget;
     const isDarkMode = checkbox.checked;
-    console.log("theme changed");
 
     if (isDarkMode) {
       document.documentElement.classList.add("dark");

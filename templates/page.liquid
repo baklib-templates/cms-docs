@@ -9,11 +9,10 @@
 <div class="flex flex-col min-h-full">
 
   <div class="flex-1 px-4 pt-4 lg:pb-24 sm:px-8 lg:pt-12 lg:px-12">
-    <div class="flex flex-col justify-between mx-auto max-w-screen-xl md:flex-row">
+    <div class="flex flex-col justify-between mx-auto max-w-7xl md:flex-row">
 
       <!-- sidebar menu -->
       <aside class="hidden md:flex order-2 pt-4 pl-4 pr-6 mt-8 lg:w-96 md:order-1 md:mt-0 md:pl-0" id="sidebar">
-        <span class="block mb-4 text-xs font-bold tracking-widest uppercase text-slate-500">{{ page.link_text }}</span>
         <!-- Docs nav -->
         <nav class="space-y-3 sticky top-0">
           <ul class="max-h-fit overflow-y-scroll">
@@ -77,6 +76,24 @@
             <h1 class="block w-full pt-1 mb-4 lg:mb-8 text-xl font-semibold text-left md:text-3xl">
               {{ page.settings.title }}
             </h1>
+
+            <div>
+              <div class="flex items-center space-x-2 mb-4">
+                {% if site.settings.is_allow_author %}
+                  <img src="{{ page.author.avatar_url | default: default_avatar_url }}" class="w-8 h-8 rounded-full" />
+                {% endif %}
+                <div>
+                  {% if site.settings.is_allow_author %}
+                    <p class="text-lead line-clamp-2 mb-[3px] text-gray-900 dark:text-gray-500 text-heading-6">
+                      {{ page.author.name }}
+                    </p>
+                  {% endif %}
+                  {% if site.settings.is_allow_published_at %}
+                    <p class="text-sm text-gray-500 text-md">Published at：{{ page.published_at | date: "%Y-%m-%d" }}</p>
+                  {% endif %}
+                </div>
+              </div>
+            </div>
 
             <article class="overflow-auto max-w-3xl">
               <div class="ProseMirror text-wrap">
