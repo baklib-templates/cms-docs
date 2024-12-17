@@ -1,0 +1,65 @@
+{% assign channels = site.pages['/'].children_in_nav_menu %}
+{% assign pages = page.children_in_list %}
+
+<div class="bg-accent/30 dark:bg-slate-700">
+  <div class="py-4 mx-auto truncate max-w-7xl">
+    {% render 'breadcrumb', breadcrumb: page.breadcrumb %}
+  </div>
+</div>
+
+
+<main class="flex h-screen mx-auto max-w-screen">
+  <section class="flex-1 min-w-24 border-r border-slate-150">
+    <ul class="list-none space-y-1">
+      {% for item in channels %}
+        <li class="{% if item.link_text == page.link_text %} text-blue-600 font-semibold bg-slate-50  {% endif %} px-2 py-1.5"> 
+          <a href="{{ item.path }}">{{ item.link_text }}</a> </li>
+      {% endfor %}
+    </ul>
+  </section>
+  <section class="grow">
+    <ul class="mt-4 divide-y divide-gray-100">
+      {% for item in pages %}
+          <li class="p-2 flex justify-between">
+              <a href="{{ item.path }}" class="truncate">{{ item.link_text }}</a>
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 w-5 h-5">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+              </svg>
+          </li>
+      {% endfor %}
+    </ul>
+  </section>
+</main>
+
+
+
+{% schema %}
+  {
+    "name": "Channel",
+    "thumb_url": "images/theme/channel.png",
+    "description": "栏目页面",
+    "sub_page_templates": ["page", "channel"],
+    "settings": [
+      {
+        "id": "title",
+        "type": "text",
+        "placeholder": "",
+        "label": "标题"
+      },
+      {
+          "id": "icon",
+          "type": "image_picker",
+          "ratio": "1:1",
+          "width": 60,
+          "label": "图标"
+      },
+      {
+        "id": "external_link",
+        "type": "text",
+        "label": "外部链接",
+        "placeholder": "",
+        "info": "注意：⚠️ 一旦设置了外链值，则页面将自动跳转到外链地址"
+      }
+    ]
+  }
+{% endschema%}

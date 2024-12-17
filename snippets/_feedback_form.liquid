@@ -1,7 +1,6 @@
-<div class="py-8 lg:flex lg:items-center lg:justify-between">
+<div class="py-8 lg:flex lg:items-center lg:justify-between border-t">
   <div>&nbsp;</div>
   <div class="space-y-4">
-    <h2 class="text-lg font-bold text-slate-800 dark:text-slate-200">{{ 'generic.feedback' | t }}</h2>
     <div id="feedback_form">
       {% form_tag 'feedback', page: page %}
         <div class="space-y-5">
@@ -12,8 +11,8 @@
               <div class="flex flex-wrap items-center justify-center space-x-5">
                 {% for useful_type in site.plugins.feedback.useful_types %}
                   <label
-                    class="flex items-center p-1 space-x-1 border rounded"
-                    :class="{ 'bg-gray-200 dark:bg-gray-700': selected === '{{ useful_type.emoji }}' }"
+                    class="flex items-center py-1 px-3 space-x-1 border rounded bg-primary-100"
+                    :class="{ 'bg-primary-300': selected === '{{ useful_type.emoji }}' }"
                     @click="selected = '{{ useful_type.emoji }}'">
                     <input
                       type="radio"
@@ -28,7 +27,8 @@
               </div>
             {% else %}
               {% for useful_type in site.plugins.feedback.useful_types %}
-                <button name="feedback[useful_type]" value="{{ useful_type.emoji }}" :class="{ 'bg-gray-200': selected === '{{ useful_type.emoji }}' }">{{ useful_type.emoji }} {{ useful_type.label }}</button>
+                <button name="feedback[useful_type]" value="{{ useful_type.emoji }}" class="flex items-center py-1 px-3 space-x-1 border rounded bg-primary-100"
+                  :class="{ 'bg-primary-300': selected === '{{ useful_type.emoji }}' }">{{ useful_type.emoji }} {{ useful_type.label }}</button>
               {% endfor %}
             {% endif %}
           </div>

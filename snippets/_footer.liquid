@@ -1,8 +1,9 @@
 
-<div class="w-full print:hidden">
   {%- if site.settings.footer_menu_html == "" -%}
     {% render "footer1" %}
   {% else %}
-    {{ site.settings.footer_menu_html }}
+    <div class="mx-auto max-w-5xl border-t mt-4 p-4 print:hidden">
+      {{ site.settings.footer_menu_html }}
+    </div>
   {% endif %}
 </div>
