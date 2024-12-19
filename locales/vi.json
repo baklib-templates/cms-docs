@@ -10,30 +10,30 @@
     "index": "Trang chủ",
     "articles": "bài viết",
     "read_more": "Đọc thêm",
-    "404": "404 页面找不到",
-    "403": "403 无访问权限",
-    "empty": "内容为空",
-    "copyright": "版权所有",
-    "hot_pages": "热门话题",
-    "recent_pages": "最近更新",
-    "tags": "标签",
-    "in_page_nav": "页内导航",
-    "feedback": "提交反馈",
-    "feedback_commit": "内容",
-    "feedback_placeholder": "请输入反馈内容",
-    "prev_page": "上一页",
-    "next_page": "下一页"
+    "404": "Không tìm thấy trang 404",
+    "403": "403 Không có quyền truy cập",
+    "empty": "Nội dung trống",
+    "copyright": "Bản quyền",
+    "hot_pages": "chủ đề nóng",
+    "recent_pages": "Cập nhật gần đây",
+    "tags": "thẻ",
+    "in_page_nav": "Điều hướng trong trang",
+    "feedback": "Gửi phản hồi",
+    "feedback_commit": "nội dung",
+    "feedback_placeholder": "Vui lòng nhập nội dung phản hồi",
+    "prev_page": "trang trước",
+    "next_page": "trang tiếp theo"
   },
   "placeholders": {
-    "search": "站内搜索",
-    "input_password": "输入密码"
+    "search": "Tìm kiếm trang web",
+    "input_password": "Nhập mật khẩu"
   },
   "buttons": {
-    "login": "登录",
-    "sso_login": "SSO 登录",
-    "baklib_login": "Baklib 账号登录"
+    "login": "đăng nhập",
+    "sso_login": "Đăng nhập SSO",
+    "baklib_login": "Đăng nhập tài khoản Baklib"
   },
   "prompts": {
-    "page_restricted": "本页面需要认证才可以被访问"
+    "page_restricted": "Trang này yêu cầu xác thực trước khi có thể truy cập"
   }
 }

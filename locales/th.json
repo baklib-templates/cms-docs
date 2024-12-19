@@ -13,27 +13,27 @@
     "404": "ไม่พบหน้า 404",
     "403": "403 ไม่มีสิทธิ์การเข้าถึง",
     "empty": "เนื้อหาว่างเปล่า",
-    "copyright": "版权所有",
-    "hot_pages": "热门话题",
-    "recent_pages": "最近更新",
-    "tags": "标签",
-    "in_page_nav": "页内导航",
-    "feedback": "提交反馈",
-    "feedback_commit": "内容",
-    "feedback_placeholder": "请输入反馈内容",
-    "prev_page": "上一页",
-    "next_page": "下一页"
+    "copyright": "ลิขสิทธิ์",
+    "hot_pages": "ประเด็นร้อน",
+    "recent_pages": "อัปเดตล่าสุด",
+    "tags": "แท็ก",
+    "in_page_nav": "การนำทางในหน้า",
+    "feedback": "ส่งคำติชม",
+    "feedback_commit": "เนื้อหา",
+    "feedback_placeholder": "โปรดป้อนเนื้อหาคำติชม",
+    "prev_page": "หน้าก่อนหน้า",
+    "next_page": "หน้าถัดไป"
   },
   "placeholders": {
-    "search": "站内搜索",
-    "input_password": "输入密码"
+    "search": "ค้นหาไซต์",
+    "input_password": "ป้อนรหัสผ่าน"
   },
   "buttons": {
-    "login": "登录",
-    "sso_login": "SSO 登录",
-    "baklib_login": "Baklib 账号登录"
+    "login": "เข้าสู่ระบบ",
+    "sso_login": "เข้าสู่ระบบ SSO",
+    "baklib_login": "เข้าสู่ระบบบัญชี Baklib"
   },
   "prompts": {
-    "page_restricted": "本页面需要认证才可以被访问"
+    "page_restricted": "หน้านี้ต้องมีการรับรองความถูกต้องก่อนจึงจะสามารถเข้าถึงได้"
   }
 }
