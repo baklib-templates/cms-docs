@@ -1,0 +1,72 @@
+site:
+  language: "zh-CN"
+  time_zone: "Asia/Shanghai"
+  favicon: "images/logo.png"
+  settings:
+    is_allow_feedback: true
+    is_allow_header: true
+    is_allow_footer: true
+    is_allow_published_at: true
+    is_allow_author: true
+    header_menu_html: |
+      <nav class="flex gap-6 items-center text-sm">
+        <a href="/changelog" class="hover:text-primary">更新日志</a>
+        <a href="/support" class="hover:text-primary">客户支持</a>
+      </nav>
+    footer_menu_html: |
+      <div class="grid gap-4 text-sm md:grid-cols-3">
+        <div>
+          <h4 class="mb-2 font-semibold text-gray-700">帮助中心</h4>
+          <a href="/quick-start" class="block hover:text-primary">快速开始</a>
+          <a href="/faq" class="block hover:text-primary">常见问题</a>
+        </div>
+        <div>
+          <h4 class="mb-2 font-semibold text-gray-700">资源</h4>
+          <a href="/videos" class="block hover:text-primary">操作视频</a>
+          <a href="/blog" class="block hover:text-primary">产品博客</a>
+        </div>
+        <div>
+          <h4 class="mb-2 font-semibold text-gray-700">支持</h4>
+          <a href="/support/community-support" class="block hover:text-primary">社区支持</a>
+          <a href="mailto:support@baklib.com" class="block hover:text-primary">support@baklib.com</a>
+        </div>
+      </div>
+    head_html: ""
+    features_one: |
+      <section class="grid gap-6 md:grid-cols-3">
+        <article class="p-4 rounded-lg bg-slate-50">
+          <h3 class="text-base font-semibold text-primary">统一知识库</h3>
+          <p class="mt-2 text-sm text-slate-600">以模块化结构管理产品文档、部署指南与操作手册，支持版本对比与多语言展示。</p>
+        </article>
+        <article class="p-4 rounded-lg bg-slate-50">
+          <h3 class="text-base font-semibold text-primary">全渠道支持</h3>
+          <p class="mt-2 text-sm text-slate-600">结合 FAQ、视频、博客与 Changelog，一站式回应客户问题并持续传递更新价值。</p>
+        </article>
+        <article class="p-4 rounded-lg bg-slate-50">
+          <h3 class="text-base font-semibold text-primary">反馈闭环</h3>
+          <p class="mt-2 text-sm text-slate-600">通过 Feedback 模块收集客户声音，驱动产品优化并追踪解决进度，真正做到持续改进。</p>
+        </article>
+      </section>
+    features_two: |
+      <section class="grid gap-4 md:grid-cols-2">
+        <article class="p-4 rounded-xl border border-slate-200">
+          <h3 class="text-base font-semibold text-secondary">智能搜索</h3>
+          <p class="mt-2 text-sm text-slate-600">基于全文检索与标签聚合，让用户可在秒级定位关键内容，降低客服重复答疑的工作量。</p>
+        </article>
+        <article class="p-4 rounded-xl border border-slate-200">
+          <h3 class="text-base font-semibold text-secondary">个性化导航</h3>
+          <p class="mt-2 text-sm text-slate-600">自定义首页入口、侧边栏与主题分组，满足不同业务线、产品线的信息架构需求。</p>
+        </article>
+      </section>
+    features_three: |
+      <section class="grid gap-4 md:grid-cols-2">
+        <article class="p-4 rounded-xl bg-primary/10">
+          <h3 class="text-base font-semibold text-primary">开发者中心</h3>
+          <p class="mt-2 text-sm text-slate-600">为技术团队提供 API、集成示例与扩展指南，加速二次开发与生态对接。</p>
+        </article>
+        <article class="p-4 rounded-xl bg-primary/10">
+          <h3 class="text-base font-semibold text-primary">知识运营指标</h3>
+          <p class="mt-2 text-sm text-slate-600">结合访问记录与反馈数据，帮助运营者衡量知识库覆盖率与客户满意度。</p>
+        </article>
+      </section>
+

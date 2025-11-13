@@ -1,0 +1,180 @@
+pages:
+  name: "Support Portal"
+  slug: "index"
+  template_name: "index.docs"
+  settings:
+    title: "支持门户"
+    description: "快速开始 · 发布公告 · 操作视频 · 博客 · 客户支持 · 常见问题"
+    hot_tags: "安装指南,快速开始,常见问题"
+    hero_image_url: "images/hero.jpg"
+  children:
+    - name: "快速开始"
+      slug: "quick-start"
+      template_name: "channel"
+      settings:
+        title: "快速开始"
+        icon: "images/theme/index-help-center.png"
+      children:
+        - name: "新手指南"
+          slug: "beginners-guide"
+          template_name: "page"
+          settings:
+            title: "新手指南"
+            content: |
+              <h2 class="js--header">快速上手三部曲</h2>
+              <ol>
+                <li><strong>创建站点</strong>：在工作台选择「新建站点」，填写基本信息后启用 Help Center 模板。</li>
+                <li><strong>导入种子数据</strong>：执行 <code>bundle exec rake themes:import</code> 并选择 <em>Support Portal</em> 主题，即可生成首页、FAQ、知识库等结构。</li>
+                <li><strong>调整导航</strong>：根据业务需求修改头部菜单与首页入口，确保用户能迅速找到关键模块。</li>
+              </ol>
+              <p>完成上述步骤后，建议阅读「知识库最佳实践」以配置权限、搜索热词与反馈渠道。</p>
+        - name: "操作视频"
+          slug: "quick-start-video"
+          template_name: "page"
+          settings:
+            title: "操作视频"
+            content: |
+              <p>观看以下短片即可掌握核心操作：</p>
+              <ul>
+                <li>模板启用与主题配色定制</li>
+                <li>栏目结构调整与页面拖拽排序</li>
+                <li>文章版本管理与协同审核</li>
+              </ul>
+              <p>视频中还包含常见问题提示，帮助管理员在正式发布前完成自检。</p>
+        - name: "安装常见问题"
+          slug: "installation-qa"
+          template_name: "page"
+          settings:
+            title: "安装常见问题"
+            content: |
+              <h3 class="js--header">安装常见问题</h3>
+              <ul>
+                <li><strong>域名绑定</strong>：在「设置 > 域名」添加 CNAME 记录指向 <code>site.baklib.cn</code>，并等待 DNS 生效。</li>
+                <li><strong>权限设置</strong>：依据角色（管理员、编辑、审阅者）分配协作权限，建议至少设置两位审阅者。</li>
+                <li><strong>数据导入</strong>：支持导入 Markdown、HTML 与 CSV FAQ 数据，可在导入向导中预览结构。</li>
+              </ul>
+              <p>更多部署指导请参考《实施手册》，其中包含环境要求与备份策略建议。</p>
+    - name: "发布公告"
+      slug: "changelog"
+      template_name: "changelog"
+      settings:
+        title: "发布公告"
+        description: "跟踪 Baklib 产品迭代、版本公告与上线通知。"
+        icon: "images/theme/changelog.png"
+        recommend_to_index: true
+      children:
+        - name: "版本上线通知"
+          slug: "release-notice"
+          template_name: "changelog_detail"
+          settings:
+            title: "版本上线通知"
+            content: |
+              <h3>核心更新</h3>
+              <ul>
+                <li>搜索引擎升级：支持拼音匹配与同义词替换，帮助读者更快找到答案。</li>
+                <li>工单流转增强：新增 SLA 预警与自动指派规则，提升客服协作效率。</li>
+              </ul>
+              <h3>适配提醒</h3>
+              <p>如果站点启用了自定义主题，请在更新后执行一次资产编译，以确保样式表与脚本同步。</p>
+        - name: "本地化多语言版本"
+          slug: "release-locale"
+          template_name: "changelog_detail"
+          settings:
+            title: "本地化多语言版本"
+            content: |
+              <p>站点可为每篇文章维护独立语言版本，并在前台展示语言切换器。</p>
+              <p>结合 AI 翻译助手，管理员可快速完成首版译文，然后交由审阅者校对。</p>
+    - name: "操作视频"
+      slug: "videos"
+      template_name: "videos"
+      settings:
+        title: "操作视频"
+        description: "通过短视频学习站点搭建与知识库维护。"
+        icon: "images/theme/videos.png"
+        recommend_to_index: true
+        video_type: "0"
+      children:
+        - name: "创建 CMS 站点"
+          slug: "create-cms-site"
+          template_name: "video_detail"
+          settings:
+            title: "创建 CMS 站点"
+            source_type: "1"
+            third_party_video_url: "https://www.youtube.com/embed/dQw4w9WgXcQ"
+            thumb_image_url: "images/theme/videos.png"
+            content: |
+              <p>演示如何在模板市场启用 CMS 站点，完成主题选择、导航配置与权限设定。</p>
+        - name: "创建 Wiki 知识库站点"
+          slug: "create-wiki-site"
+          template_name: "video_detail"
+          settings:
+            title: "创建 Wiki 知识库站点"
+            source_type: "1"
+            third_party_video_url: "https://www.youtube.com/embed/dQw4w9WgXcQ"
+            thumb_image_url: "images/theme/videos.png"
+            content: |
+              <p>介绍如何搭建 Wiki 知识库、设置栏目层级，并通过协作流程保持知识更新。</p>
+    - name: "博客"
+      slug: "blog"
+      template_name: "blog"
+      settings:
+        title: "博客"
+        description: "记录 Baklib 产品动态与最佳实践。"
+        icon: "images/theme/blog.png"
+        recommend_to_index: true
+      children:
+        - name: "Baklib AI 翻译，让多语言内容创作更高效"
+          slug: "ai-translation"
+          template_name: "blog_post"
+          settings:
+            title: "Baklib AI 翻译，让多语言内容创作更高效"
+            description: "借助 AI 翻译加速多语言知识库的搭建效率。"
+            content: |
+              <p>AI 翻译会自动识别术语表并匹配段落上下文，生成高质量译文。管理员可对重要章节设置「必审」标签，确保发布前经过校对。</p>
+              <p>系统还会记录译文更新时间，方便在产品多次迭代后快速对齐多语言内容。</p>
+    - name: "客户支持"
+      slug: "support"
+      template_name: "support"
+      settings:
+        title: "客户支持"
+        description: "获取专业支持、社区互助与最佳实践。"
+        icon: "images/theme/support-portal.png"
+        recommend_to_index: true
+      children:
+        - name: "社区支持：与其他用户交流经验"
+          slug: "community-support"
+          template_name: "support_detail"
+          settings:
+            title: "社区支持：与其他用户交流经验"
+            content: |
+              <p>加入社区，与来自不同行业的 Baklib 用户分享经验、提交建议与共创扩展方案。</p>
+              <p>推荐关注以下话题：</p>
+              <ul>
+                <li>知识库内容运营技巧</li>
+                <li>开发者集成案例与脚本分享</li>
+                <li>客户成功团队的培训手册模板</li>
+              </ul>
+    - name: "FAQ"
+      slug: "faq"
+      template_name: "faq"
+      settings:
+        title: "FAQ"
+        description: "快速找到培训与实施相关的常见问题解答。"
+        icon: "images/theme/faq.png"
+        recommend_to_index: true
+      children:
+        - name: "启动培训主要包含哪些内容？"
+          slug: "onboarding-training"
+          template_name: "faq_detail"
+          settings:
+            title: "启动培训主要包含哪些内容？"
+            content: |
+              <p>启动培训包括三部分：站点搭建演练、模板与导航配置、权限设置与发布流程。培训结束后会提供操作清单，确保实施团队能够独立维护站点。</p>
+        - name: "进阶培训主要包含哪些内容？"
+          slug: "advanced-training"
+          template_name: "faq_detail"
+          settings:
+            title: "进阶培训主要包含哪些内容？"
+            content: |
+              <p>进阶培训聚焦多语言运营、内容审批流程、知识运营指标分析，并提供 KPI 仪表盘示例方便二次开发。</p>
+
