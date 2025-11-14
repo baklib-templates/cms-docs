@@ -13,7 +13,7 @@ pages:
       template_name: "channel"
       settings:
         title: "快速开始"
-        icon: "images/theme/index-help-center.png"
+        icon: "images/demo/help-center.png"
       children:
         - name: "新手指南"
           slug: "beginners-guide"
@@ -60,7 +60,7 @@ pages:
       settings:
         title: "发布公告"
         description: "跟踪 Baklib 产品迭代、版本公告与上线通知。"
-        icon: "images/theme/changelog.png"
+        icon: "images/demo/changelog.png"
         recommend_to_index: true
       children:
         - name: "版本上线通知"
@@ -90,7 +90,7 @@ pages:
       settings:
         title: "操作视频"
         description: "通过短视频学习站点搭建与知识库维护。"
-        icon: "images/theme/videos.png"
+        icon: "images/demo/video.png"
         recommend_to_index: true
         video_type: "0"
       children:
@@ -100,7 +100,13 @@ pages:
           settings:
             title: "创建 CMS 站点"
             source_type: "1"
-            third_party_video_url: "https://www.youtube.com/embed/dQw4w9WgXcQ"
+            third_party_video_url: |-
+              <video
+                src="https://tanmer.baklib.com/-/dam/assets/organization_pry3c5--main-version/eyJfcmFpbHMiOnsiZGF0YSI6eyJpZCI6NTE4MTYsInBhdGgiOiJjbXPnq5nngrnliJvlu7oubXA0IiwidGltZXN0YW1wIjoiMjAyNS0wMS0wN1QyMzoxNDoxMC4xNTIrMDg6MDAiLCJ0b2tlbiI6IiJ9LCJwdXIiOiJvcmdhbml6YXRpb25fcHJ5M2M1LS1tYWluLXZlcnNpb24ifX0--d3b0be9fade0f01020166eeef045b25d6144917fb10ad09d4ee49a82563ae418/cms%E7%AB%99%E7%82%B9%E5%88%9B%E5%BB%BA.mp4"
+                controls
+                preload="metadata"
+                style="width:100%; max-width:800px; border-radius:12px;"
+              ></video>
             thumb_image_url: "images/theme/videos.png"
             content: |
               <p>演示如何在模板市场启用 CMS 站点，完成主题选择、导航配置与权限设定。</p>
@@ -110,8 +116,14 @@ pages:
           settings:
             title: "创建 Wiki 知识库站点"
             source_type: "1"
-            third_party_video_url: "https://www.youtube.com/embed/dQw4w9WgXcQ"
-            thumb_image_url: "images/theme/videos.png"
+            third_party_video_url: |
+              <video
+                src="https://tanmer.baklib.com/-/dam/assets/organization_pry3c5--main-version/eyJfcmFpbHMiOnsiZGF0YSI6eyJpZCI6NTE4MTgsInBhdGgiOiJ3aWtpIOermeeCueWIm-W7uua1geeoiy5tcDQiLCJ0aW1lc3RhbXAiOiIyMDI1LTAxLTA3VDIzOjE0OjEwLjEyOCswODowMCIsInRva2VuIjoiIn0sInB1ciI6Im9yZ2FuaXphdGlvbl9wcnkzYzUtLW1haW4tdmVyc2lvbiJ9fQ--9b043cf9287ddcba43eedec55c81b49c9b60f7e1da82eb99642e2ac807ee73ca/wiki%20%E7%AB%99%E7%82%B9%E5%88%9B%E5%BB%BA%E6%B5%81%E7%A8%8B.mp4"
+                controls
+                preload="metadata"
+                style="width:100%; max-width:800px; border-radius:12px;"
+              ></video>
+            thumb_image_url: "images/demo/wiki.png"
             content: |
               <p>介绍如何搭建 Wiki 知识库、设置栏目层级，并通过协作流程保持知识更新。</p>
     - name: "博客"
@@ -120,7 +132,7 @@ pages:
       settings:
         title: "博客"
         description: "记录 Baklib 产品动态与最佳实践。"
-        icon: "images/theme/blog.png"
+        icon: "images/demo/blog.png"
         recommend_to_index: true
       children:
         - name: "Baklib AI 翻译，让多语言内容创作更高效"
@@ -138,7 +150,7 @@ pages:
       settings:
         title: "客户支持"
         description: "获取专业支持、社区互助与最佳实践。"
-        icon: "images/theme/support-portal.png"
+        icon: "images/demo/support.png"
         recommend_to_index: true
       children:
         - name: "社区支持：与其他用户交流经验"
@@ -160,7 +172,7 @@ pages:
       settings:
         title: "FAQ"
         description: "快速找到培训与实施相关的常见问题解答。"
-        icon: "images/theme/faq.png"
+        icon: "images/demo/faq.png"
         recommend_to_index: true
       children:
         - name: "启动培训主要包含哪些内容？"

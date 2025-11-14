@@ -1,7 +1,7 @@
 {% assign pages = site.pages['/'].children_in_nav_menu %}
-
+{% assign avatar_url = 'images/avatar.svg' | asset_url %}
 <div class="bg-accent/30 dark:bg-slate-700">
-  <div class="py-4 mx-auto truncate max-w-7xl">
+  <div class="py-4 mx-auto max-w-7xl truncate">
     {% render 'breadcrumb', breadcrumb: page.breadcrumb %}
   </div>
 </div>
@@ -12,16 +12,16 @@
     <div class="flex flex-col justify-between mx-auto max-w-7xl md:flex-row">
 
       <!-- sidebar menu -->
-      <aside class="hidden md:flex order-2 pt-4 pl-4 pr-6 mt-8 lg:w-96 md:order-1 md:mt-0 md:pl-0 border-r" id="sidebar">
+      <aside class="hidden order-2 pt-4 pr-6 pl-4 mt-8 border-r md:flex lg:w-96 md:order-1 md:mt-0 md:pl-0" id="sidebar">
         <!-- Docs nav -->
-        <nav class="space-y-3 sticky top-0">
-          <ul class="max-h-fit overflow-y-scroll">
+        <nav class="sticky top-0 space-y-3">
+          <ul class="overflow-y-scroll max-h-fit">
               {% for item in pages %}
                   <!-- 1st level -->
                   <li class="mb-1" x-data="{ open: true }">
                   <div class="relative flex items-center justify-between p-1 {% if item.path == page.path %} font-semibold text-primary {% endif %}">
                       <div class="flex">
-                          <svg class="w-4 h-4 mr-2 flex-0 shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="w-4 h-4">
+                          <svg class="mr-2 w-4 h-4 flex-0 shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="w-4 h-4">
                               <path class="text-primary/50 {% if item.path == page.path %} text-primary {% endif %}" d="M5.5 3.5A1.5 1.5 0 0 1 7 2h2.879a1.5 1.5 0 0 1 1.06.44l2.122 2.12a1.5 1.5 0 0 1 .439 1.061V9.5A1.5 1.5 0 0 1 12 11V8.621a3 3 0 0 0-.879-2.121L9 4.379A3 3 0 0 0 6.879 3.5H5.5Z" />
                               <path class="opacity-50 text-secondary" d="M4 5a1.5 1.5 0 0 0-1.5 1.5v6A1.5 1.5 0 0 0 4 14h5a1.5 1.5 0 0 0 1.5-1.5V8.621a1.5 1.5 0 0 0-.44-1.06L7.94 5.439A1.5 1.5 0 0 0 6.878 5H4Z" />
                           </svg>
@@ -49,13 +49,13 @@
       <main class="order-1 w-full md:order-2">
         {% if page.settings.show_list %}
           <div class="px-6 py-6 md:py-8 md:px-12">
-            <h1 class="block w-full my-2 lg:my-4 text-2xl font-semibold text-left md:text-3xl">
+            <h1 class="block my-2 w-full text-2xl font-semibold text-left lg:my-4 md:text-3xl">
               {{ page.settings.title }}
             </h1>
             <div>
-              <div class="flex items-center space-x-2 mb-4">
+              <div class="flex items-center mb-4 space-x-2">
                 {% if site.settings.is_allow_author %}
-                  <img src="{{ page.author.avatar_url | default: default_avatar_url }}" class="w-8 h-8 rounded-full" />
+                  <img src="{{ page.author.avatar_url | default: avatar_url }}" class="w-8 h-8 rounded-full" />
                 {% endif %}
                 <div>
                   {% if site.settings.is_allow_author %}
@@ -73,14 +73,14 @@
           </div>
         {% else %}
           <div class="px-6 py-6">
-            <h1 class="block w-full pt-1 mb-4 lg:mb-8 text-xl font-semibold text-left md:text-3xl">
+            <h1 class="block pt-1 mb-4 w-full text-xl font-semibold text-left lg:mb-8 md:text-3xl">
               {{ page.settings.title }}
             </h1>
 
             <div>
-              <div class="flex items-center space-x-2 mb-4">
+              <div class="flex items-center mb-4 space-x-2">
                 {% if site.settings.is_allow_author %}
-                  <img src="{{ page.author.avatar_url | default: default_avatar_url }}" class="w-8 h-8 rounded-full" />
+                  <img src="{{ page.author.avatar_url | default: avatar_url }}" class="w-8 h-8 rounded-full" />
                 {% endif %}
                 <div>
                   {% if site.settings.is_allow_author %}
@@ -103,7 +103,7 @@
 
             <!--Tags-->
             {% if page.settings.tags.size > 0 %}
-              <div class="flex items-center py-4 mt-4 space-x-2 text-xs font-light md:mt-8 shrink-0 ">
+              <div class="flex items-center py-4 mt-4 space-x-2 text-xs font-light md:mt-8 shrink-0">
                   <p>{{ 'generic.tags' | t }}：</p>
                   {% for tag in page.settings.tags %}
                       <a href="{{ tag.path }}" style="background-color: {{ tag.color }}" class="px-2 py-1 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-offset-2">
@@ -117,7 +117,7 @@
             {% render "feedback_form", page: page %}
 
             <!-- Sub Post Section -->
-            
+
           </div>
         {% endif %}
       </main>
